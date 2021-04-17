@@ -9,17 +9,24 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    annotationProcessor("org.projectlombok:lombok:1.18.20")
-    implementation(kotlin("stdlib"))
-    implementation("org.projectlombok:lombok:1.18.16")
-    implementation("org.javamoney:moneta:1.4.2")
+val lombok: String by project
+val moneta: String by project
+val junit5: String by project
+val assertj: String by project
+val mockito: String by project
+val mockk: String by project
 
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
+dependencies {
+    annotationProcessor("org.projectlombok:lombok:${lombok}")
+    implementation(kotlin("stdlib"))
+    implementation("org.projectlombok:lombok:${lombok}")
+    implementation("org.javamoney:moneta:${moneta}")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:${junit5}")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("org.assertj:assertj-core:3.19.0")
-    testImplementation("org.mockito:mockito-core:3.9.0")
-    testImplementation("io.mockk:mockk:1.11.0")
+    testImplementation("org.assertj:assertj-core:${assertj}")
+    testImplementation("org.mockito:mockito-core:${mockito}")
+    testImplementation("io.mockk:mockk:${mockk}")
 }
 
 tasks.withType<Test> {
